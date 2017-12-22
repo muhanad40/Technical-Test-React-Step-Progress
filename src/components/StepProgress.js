@@ -8,7 +8,7 @@ const StepProgress = (props) => {
         <div className="step-progress__progress" />
       </div>
 
-      {props.steps.map((step, i) => (
+      {props.stepsLabels.map((step, i) => (
         <Step key={`${step}_${i}`} label={step} />
       ))}
     </div>

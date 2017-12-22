@@ -7,7 +7,7 @@ describe('StepProgress', () => {
   let renderedComponent;
   let renderedSteps;
   let props = {
-    steps: ['Design', 'Build', 'Launch'],
+    stepsLabels: ['Design', 'Build', 'Launch'],
   };
 
   beforeAll(() => {
@@ -16,10 +16,10 @@ describe('StepProgress', () => {
   });
 
   it('should render steps', () => {
-    expect(renderedSteps).toHaveLength(props.steps.length);
+    expect(renderedSteps).toHaveLength(props.stepsLabels.length);
   });
 
   it('should pass the correct steps labels', () => {
-    expect(renderedSteps.map((step) => step.props().label)).toEqual(expect.arrayContaining(props.steps))
+    expect(renderedSteps.map((step) => step.props().label)).toEqual(expect.arrayContaining(props.stepsLabels))
   });
 });
