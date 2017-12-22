@@ -1,7 +1,7 @@
 import React from 'react';
 
 const Progress = (props) => {
-  let progressWidth = (100 / (props.steps - 1)) * (props.activeStep - 1);
+  let progressWidth = props.activeStep ? (100 / (props.steps - 1)) * (props.activeStep - 1) : 0;
 
   return (
     <div className="step-progress">

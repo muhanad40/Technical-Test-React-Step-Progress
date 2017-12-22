@@ -32,4 +32,12 @@ describe('StepProgress', () => {
 
     expect(renderedComponent.find('.step-progress__progress').props().style.width).toEqual('75%');
   });
+
+  it('should set progress bar width to 0% when no step is active', () => {
+    renderedComponent.setProps({
+      activeStep: 0
+    });
+
+    expect(renderedComponent.find('.step-progress__progress').props().style.width).toEqual('0%');
+  });
 });
