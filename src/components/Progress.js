@@ -13,10 +13,13 @@ class Progress extends React.Component {
   }
 
   componentWillReceiveProps(nextProps) {
-    let { activeStep, steps } = nextProps;
-    let width = activeStep ? (100 / (steps - 1)) * (activeStep - 1) : 0;
+    this.setState({
+      width: this.calculateProgressWidth(nextProps.activeStep),
+    });
+  }
 
-    this.setState({ width });
+  calculateProgressWidth(stepNumber) {
+    return stepNumber ? (100 / (this.props.steps - 1)) * (stepNumber - 1) : 0;
   }
 
   render() {
