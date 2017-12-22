@@ -1,13 +1,31 @@
 import React from 'react';
 
-const Progress = (props) => {
-  let progressWidth = props.activeStep ? (100 / (props.steps - 1)) * (props.activeStep - 1) : 0;
+class Progress extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      width: 0,
+    };
+  }
 
-  return (
-    <div className="step-progress">
-      <div className="step-progress__progress" style={{ width: `${progressWidth}%` }}/>
-    </div>
-  );
-};
+  shouldComponentUpdate(nextProps) {
+    return nextProps.activeStep !== this.props.activeStep;
+  }
+
+  componentWillReceiveProps(nextProps) {
+    let { activeStep, steps } = nextProps;
+    let width = activeStep ? (100 / (steps - 1)) * (activeStep - 1) : 0;
+
+    this.setState({ width });
+  }
+
+  render() {
+    return (
+      <div className="step-progress">
+        <div className="step-progress__progress" style={{ width: `${this.state.width}%` }}/>
+      </div>
+    );
+  }
+}
 
 export default Progress;
