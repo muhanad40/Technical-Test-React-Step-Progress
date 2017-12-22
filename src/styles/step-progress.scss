@@ -1,0 +1,14 @@
+.step-progress {
+  height: $border-size;
+  background: $inactive-color;
+  position: absolute;
+  top: 30px;
+  right: 10px;
+  left: 10px;
+
+  .step-progress__progress {
+    width: 50%;
+    background: red;
+    height: 100%;
+  }
+}

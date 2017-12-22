@@ -1,0 +1,14 @@
+@import "variables";
+@import "./step";
+@import "./step-progress";
+
+body {
+  font-family: 'Open Sans', sans-serif;
+}
+
+.step-progress-wrapper {
+  margin-top: 30px;
+  position: relative;
+  display: flex;
+  justify-content: space-between;
+}
