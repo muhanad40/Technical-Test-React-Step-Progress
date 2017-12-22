@@ -11,6 +11,7 @@
   "author": "Muhanad Al-Rubaiee",
   "license": "ISC",
   "dependencies": {
+    "classnames": "^2.2.5",
     "express": "^4.16.2",
     "react": "^16.2.0",
     "react-dom": "^16.2.0"
@@ -21,11 +22,28 @@
     "babel-preset-env": "^1.6.1",
     "babel-preset-react": "^6.24.1",
     "css-loader": "^0.28.7",
+    "enzyme": "^3.2.0",
+    "enzyme-adapter-react-16": "^1.1.1",
     "jest": "^22.0.3",
     "node-sass": "^4.7.2",
     "sass-loader": "^6.0.6",
     "style-loader": "^0.19.1",
     "webpack": "^3.10.0",
     "webpack-dev-server": "^2.9.7"
+  },
+  "babel": {
+    "presets": [
+      "env",
+      "react"
+    ]
+  },
+  "jest": {
+    "testRegex": "__tests__/(.*).test.js$",
+    "setupFiles": [
+      "./__tests__/setup.js"
+    ],
+    "modulePaths": [
+      "<rootDir>/src"
+    ]
   }
 }
