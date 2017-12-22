@@ -8,7 +8,6 @@
   flex-direction: column;
   align-items: center;
   color: $inactive-color;
-  cursor: pointer;
 
   &:after {
     content: '';
@@ -24,4 +23,8 @@
 
 .step--active {
   color: $active-color;
+}
+
+.step--clickable {
+  cursor: pointer;
 }

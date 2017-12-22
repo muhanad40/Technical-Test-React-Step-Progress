@@ -60,4 +60,11 @@ describe('Step', () => {
 
     expect(props.onClick.mock.calls).toHaveLength(0);
   });
+
+  it('should add `step--clickable` class name if `isClickable` prop is set', () => {
+    renderedComponent.setProps({
+      isClickable: true,
+    });
+    expect(renderedComponent.getElement().props.className).toMatch(/step--clickable/);
+  });
 });

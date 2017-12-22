@@ -11,8 +11,9 @@ const Step = (props) => {
   } = props;
 
   return (
-    <div onClick={() => {isClickable && onClick(id)}} className={classnames('step',
-      {'step--active': isActive
+    <div onClick={() => {isClickable && onClick(id)}} className={classnames('step', {
+      'step--active': isActive,
+      'step--clickable': isClickable,
     })}>
       {label}
     </div>
