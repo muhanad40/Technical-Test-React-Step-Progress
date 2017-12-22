@@ -8,7 +8,7 @@ class StepProgress extends React.Component {
 
     this.onStepClick = this.onStepClick.bind(this);
     this.state = {
-      activeStep: 0,
+      activeStep: 1,
     };
   }
 
