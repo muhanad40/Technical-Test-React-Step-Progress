@@ -7,8 +7,7 @@
   left: 25px;
 
   .step-progress__progress {
-    width: 50%;
-    background: red;
+    background: $active-color;
     height: 100%;
   }
 }
