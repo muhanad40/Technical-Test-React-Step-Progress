@@ -21,6 +21,8 @@ class StepProgress extends React.Component {
   render() {
     let { stepsLabels } = this.props;
 
+    if (stepsLabels.length < 2 || stepsLabels.length > 5) { return null; }
+
     return (
       <div className="step-progress-wrapper">
         <Progress steps={stepsLabels.length} activeStep={this.state.activeStep} />

@@ -66,4 +66,23 @@ describe('StepProgress', () => {
     expect(StepProgress.prototype.onStepClick.mock.calls[0][0]).toEqual(2);
     expect(renderedComponent.state().activeStep).toEqual(2);
   });
+
+  it('should not render anything if there is one step label given', () => {
+    let renderedComponent = shallow(<StepProgress stepsLabels={['Design']} />);
+
+    expect(renderedComponent.getElement()).toEqual(null);
+  });
+
+  it('should not render anything if more than 5 steps labels are given', () => {
+    let renderedComponent = shallow(<StepProgress stepsLabels={[
+      'Design',
+      'Develop',
+      'QA',
+      'Launch',
+      'Feedback',
+      'Repeat',
+    ]} />);
+
+    expect(renderedComponent.getElement()).toEqual(null);
+  });
 });
