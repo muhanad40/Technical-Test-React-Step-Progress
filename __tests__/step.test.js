@@ -5,8 +5,10 @@ import { shallow } from 'enzyme';
 describe('Step', () => {
   let renderedComponent;
   let props = {
+    id: 2,
     label: 'Design',
     isActive: false,
+    onClick: jest.fn()
   };
 
   beforeAll(() => {
@@ -32,4 +34,13 @@ describe('Step', () => {
 
     expect(renderedComponent.getElement().props.className).toMatch(/step--active/);
   });
+
+  it('should trigger onClick prop when clicked and pass the id', () => {
+    let stepEl = renderedComponent.find('.step');
+
+    stepEl.simulate('click');
+
+    expect(props.onClick.mock.calls).toHaveLength(1);
+    expect(props.onClick.mock.calls[0][0]).toEqual(props.id);
+  })
 });
