@@ -34,6 +34,7 @@ class StepProgress extends React.Component {
             <Step
               key={`${step}_${i}`}
               isActive={uniqueId <= this.state.activeStep}
+              isClickable={this.state.activeStep - 1 === uniqueId || this.state.activeStep + 1 === uniqueId}
               id={uniqueId}
               label={step}
               onClick={this.onStepClick}

@@ -58,6 +58,10 @@ describe('StepProgress', () => {
   });
 
   it('should call `onStepClick` method when a step is clicked passing its index as argument and set it to state', () => {
+    renderedComponent.setState({
+      activeStep: 1,
+    });
+
     let secondStep = renderedSteps.at(1);
 
     secondStep.find('div').simulate('click');
@@ -84,5 +88,27 @@ describe('StepProgress', () => {
     ]} />);
 
     expect(renderedComponent.getElement()).toEqual(null);
+  });
+
+  it('should not allow user to jump steps both either forwards or backwards', () => {
+    renderedComponent.setState({
+      activeStep: 3,
+    });
+    renderedComponent.setProps({
+      stepsLabels: [
+        'Design',
+        'Develop',
+        'QA',
+        'Launch',
+        'Feedback',
+      ],
+    });
+    renderedSteps = renderedComponent.find(Step);
+
+    expect(renderedSteps.at(0).props().isClickable).toEqual(false);
+    expect(renderedSteps.at(1).props().isClickable).toEqual(true);
+    expect(renderedSteps.at(2).props().isClickable).toEqual(false);
+    expect(renderedSteps.at(3).props().isClickable).toEqual(true);
+    expect(renderedSteps.at(4).props().isClickable).toEqual(false);
   });
 });
