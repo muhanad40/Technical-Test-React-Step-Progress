@@ -8,11 +8,16 @@ describe('Step', () => {
     id: 2,
     label: 'Design',
     isActive: false,
+    isClickable: true,
     onClick: jest.fn()
   };
 
   beforeAll(() => {
     renderedComponent = shallow(<Step {...props} />);
+  });
+
+  beforeEach(() => {
+    props.onClick.mockClear();
   });
 
   it('should render the correct label', () => {
@@ -35,12 +40,24 @@ describe('Step', () => {
     expect(renderedComponent.getElement().props.className).toMatch(/step--active/);
   });
 
-  it('should trigger onClick prop when clicked and pass the id', () => {
+  it('should trigger `onClick` prop when clicked and pass the `id`', () => {
     let stepEl = renderedComponent.find('.step');
 
     stepEl.simulate('click');
 
     expect(props.onClick.mock.calls).toHaveLength(1);
     expect(props.onClick.mock.calls[0][0]).toEqual(props.id);
-  })
+  });
+
+  it('should not trigger `onClick` prop when clicked when `isClickable` is false', () => {
+    renderedComponent.setProps({
+      isClickable: false,
+    });
+
+    let stepEl = renderedComponent.find('.step');
+
+    stepEl.simulate('click');
+
+    expect(props.onClick.mock.calls).toHaveLength(0);
+  });
 });

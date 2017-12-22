@@ -6,11 +6,12 @@ const Step = (props) => {
     id,
     label,
     isActive,
+    isClickable,
     onClick,
   } = props;
 
   return (
-    <div onClick={() => {onClick(id)}} className={classnames('step',
+    <div onClick={() => {isClickable && onClick(id)}} className={classnames('step',
       {'step--active': isActive
     })}>
       {label}
