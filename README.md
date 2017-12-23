@@ -13,7 +13,8 @@ About 5 hours, but not in one go. Context switching and project setup slowed me 
 - `npm install`
 
 #### Run the demo
-`npm start`
+- `npm start`
+- Point your browser to http://localhost:3000/
 
 #### Run the tests
 `npm test`
