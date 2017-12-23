@@ -1,6 +1,6 @@
 ## React Steps Progress Component
 
-A simple React application that has a steps progress component. The user is only allowed to select the next or previous step. The user cannot skip a step and select the one after.
+A simple React application that has a steps progress component. The user is only allowed to select the next or previous step. The user cannot skip a step and select the one after. The component will render if it's given a minimum of 2 and maximum of 5 steps.
 
 I've used stateless components where necessary, but also used a stateful component along with some lifecycle methods. I couldn't use the other available lifecycle methods because there's not much use for them for such a simple application. I didn't use Redux/Flux because it would be an overkill.
 
