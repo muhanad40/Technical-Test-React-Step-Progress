@@ -1,4 +1,4 @@
-### React Steps Progress Component
+## React Steps Progress Component
 
 A simple React application that has a steps progress component. The user is only allowed to select the next or previous step. The user cannot skip a step and select the one after.
 
